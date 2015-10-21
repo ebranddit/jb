@@ -2,21 +2,14 @@
 
 angular.module('jbuilderApp')
   .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
+    var navItems = [];
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
+    navItems.push({label: "Tour", url: "/tour"});
+    navItems.push({label: "Create", url: "/create"});
+    navItems.push({label: "Manage", url: "/manage"});
+    navItems.push({label: "Testimonials", url: "/testimonials"});
 
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
-      }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
-    };
+    $scope.navItems = navItems;
 
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
-    };
+    console.log($scope.navItems);
   });
