@@ -1,13 +1,43 @@
-<div class="container-fluid">
-
-      <ul class="nav nav-tabs nav-stacked col-md-6" ng-repeat="navItem in navItems">
-        <li><a class="square" href="#" tooltip="{{navItem.label}}">{{navItem.label}}</a></li>
-      </ul>
-
-</div>
-
-<footer class="footer">
+<nav class="navbar navbar-fixed-top" ng-class="{'xf-show': xfShow}">
   <div class="container">
+    <!--|Site Brand|-->
+    <div class="site-brand pull-left">
+      <a class="site-logo" href="#header"><img alt="" src="assets/images/yeoman.png"></a>
+    </div> <!--||End Site Brand|-->
 
+    <div class="pull-right">
+      <!--|Social Links|-->
+      <!-- <div class="social-links">
+        <a href="#"><i class="ion-social-facebook-outline"></i></a>
+        <a href="#"><i class="ion-social-twitter-outline"></i></a>
+        <a href="#"><i class="ion-social-pinterest-outline"></i></a>
+        <a href="#"><i class="ion-social-linkedin-outline"></i></a>
+      </div>  -->
+      <!--||End Social Links|-->
+      <!--|Menu Trigger Btn|-->
+      <a class="menu-trigger-btn" href="#" ng-click="toggleXF()">
+        <i class="icon-nav ion-navicon"></i>
+        <i class="icon-close ion-ios-close-empty"></i>
+      </a> <!--||End Menu Trigger Btn|-->
+    </div>
   </div>
-</footer>
+
+  <!--|Menu Wrapper|-->
+  <div class="menu-wrapper">
+    <div class="container">
+      <ul class="nav">
+        <li class="active"><a href="#header">Home</a></li>
+        <li class=""><a href="#features">Features</a></li>
+        <li><a href="#plan">Plans</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div> <!--|End Menu Wrapper|-->
+</nav>
+
+<!--|Header|-->
+<header id="header" class="overlay-default header">
+  <div style="position: absolute; z-index: -1; top: 0px; left: 0px; bottom: 0px; right: 0px; overflow: hidden; background-image: url(assets/images/background.jpg); background-size: cover; background-position: 0% 50%; background-repeat: no-repeat;">
+</div>
+</header>
+<!--|End Header|-->
