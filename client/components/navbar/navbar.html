@@ -1,8 +1,8 @@
-<nav class="navbar navbar-fixed-top" ng-class="{'xf-show': xfShow}" ng-controller="NavbarCtrl">
+<nav class="navbar navbar-fixed-top" ng-class="{'xf-show': !menuCollapsed}" ng-controller="NavbarCtrl">
   <div class="container">
     <!--|Site Brand|-->
     <div class="site-brand pull-left">
-      <a class="site-logo" href="#header"><img alt="" src="assets/images/yeoman.png"></a>
+      <a class="site-logo" href="#home"><img alt="" src="assets/images/yeoman.png"></a>
     </div> <!--||End Site Brand|-->
 
     <div class="pull-right">
@@ -15,7 +15,7 @@
       </div>  -->
       <!--||End Social Links|-->
       <!--|Menu Trigger Btn|-->
-      <a class="menu-trigger-btn" href="#" ng-click="toggleXF()">
+      <a class="menu-trigger-btn" href="#" ng-click="toggleMenu()">
         <i class="icon-nav ion-navicon"></i>
         <i class="icon-close ion-ios-close-empty"></i>
       </a> <!--||End Menu Trigger Btn|-->
@@ -26,10 +26,9 @@
   <div class="menu-wrapper">
     <div class="container">
       <ul class="nav">
-        <li class="active"><a href="#header">Home</a></li>
-        <li class=""><a href="#features">Features</a></li>
-        <li><a href="#plan">Plans</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li  ng-repeat="menuItem in menuItems" ng-class="{active: isActive(menuItem.link)}">
+          <a href={{menuItem.link}}>{{menuItem.title}}</a>
+        </li>
       </ul>
     </div>
   </div> <!--|End Menu Wrapper|-->
