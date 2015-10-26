@@ -16,6 +16,7 @@ nav {
     display: block;
     padding: 9px 0;
     z-index: 2;
+    font-size: 3.2em;
   }
 
   .pull-left {
@@ -79,7 +80,7 @@ nav {
 
         &:hover, &:focus{
           background-color: transparent !important;
-          color: #03a9f4 !important;
+          color: $theme-color !important;
         }
       }
     }
