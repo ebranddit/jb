@@ -34,7 +34,7 @@
 
       .tile {
         float: left;
-        background-color: #03a9f4;
+        background-color: $theme-color;
         //@include linear-gradient(to right, #e4f5fc 0%,#bfe8f9 0%,#2ab0ed 100%);
         opacity: 0.8;
         margin: 8px;

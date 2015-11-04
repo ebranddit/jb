@@ -1,0 +1,32 @@
+#create {
+
+  padding: 120px 0 80px;
+
+  @include media("≥desktop") {
+    height: 100%;
+    padding: 0;
+  }
+
+  .wizard{
+    background-color: $theme-color;
+    //@include linear-gradient(to right, #e4f5fc 0%,#bfe8f9 0%,#2ab0ed 100%);
+    float: left;
+    opacity: 0.8;
+    padding: 12px;
+    box-shadow: 4px 4px 5px -1px rgba(0,0,0,0.75);
+
+    @include media("≥desktop") {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      @include transform(translateY(-60%));
+    }
+
+  }
+
+  .btn-round {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%
+  }
+}
