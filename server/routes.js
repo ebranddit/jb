@@ -30,14 +30,18 @@ module.exports = function(app) {
      res.set('Content-Type', 'application/javascript');
      var response = "angular.module('jb.setup', []).constant('Setup',"
      response += JSON.stringify(setup);
-     response += ");"
-     console.log(setup);
+     response += ");";
      res.send(new Buffer(response));
    });
 
   // All other routes should redirect to the index.html
-  app.route('/*')
+  app.route('/')
     .get(function(req, res) {
-      res.sendFile(path.resolve(app.get('appPath') + '/index.html'));
+      var subdomains = req.subdomains;
+      if(subdomains && subdomains.length >0){
+        var siteName = req.subdomains[0];
+        res.sendFile(path.resolve(app.get('appPath') + '/sites/' + siteName + '/index.html'));
+      }else
+        res.sendFile(path.resolve(app.get('appPath') + '/index.html'));
     });
 };
