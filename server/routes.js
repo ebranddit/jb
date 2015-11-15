@@ -1,6 +1,6 @@
 /**
- * Main application routes
- */
+* Main application routes
+*/
 
 'use strict';
 
@@ -13,8 +13,9 @@ module.exports = function(app) {
 
   // Insert routes below
   app.use('/api/things', require('./api/thing'));
-  app.use('/api/users', require('./api/user'));
   app.use('/api/themes', require('./components/themes'));
+
+  app.use('/api/site', require('./api/site'));
 
   app.use('/auth', require('./auth'));
 
@@ -22,26 +23,21 @@ module.exports = function(app) {
 
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
-   .get(errors[404]);
+  .get(errors[404]);
 
-   //setup
-   app.route('/setup/setup.js')
-   .get(function(req, res) {
-     res.set('Content-Type', 'application/javascript');
-     var response = "angular.module('jb.setup', []).constant('Setup',"
-     response += JSON.stringify(setup);
-     response += ");";
-     res.send(new Buffer(response));
-   });
+  //setup
+  app.route('/setup/setup.js')
+  .get(function(req, res) {
+    res.set('Content-Type', 'application/javascript');
+    var response = "angular.module('jb.setup', []).constant('Setup',"
+    response += JSON.stringify(setup);
+    response += ");";
+    res.send(new Buffer(response));
+  });
 
   // All other routes should redirect to the index.html
   app.route('/')
-    .get(function(req, res) {
-      var subdomains = req.subdomains;
-      if(subdomains && subdomains.length >0){
-        var siteName = req.subdomains[0];
-        res.sendFile(path.resolve(app.get('appPath') + '/sites/' + siteName + '/index.html'));
-      }else
-        res.sendFile(path.resolve(app.get('appPath') + '/index.html'));
-    });
+  .get(function(req, res) {
+    res.sendFile(path.resolve(app.get('appPath') + '/index.html'));
+  });
 };
