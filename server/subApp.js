@@ -26,7 +26,10 @@ module.exports = function(app) {
   subApp.route('/')
   .get(function(req, res) {
     if (!module.parent) console.log(req.vhost);
-    res.sendFile(path.resolve(app.get('appPath') + '/sites/' + req.vhost[0] + '/index.html'));
+
+    app.use('/' + req.vhost[0], express.static(__dirname + '/../' + req.vhost[0]));
+
+    res.sendFile(path.resolve(app.get('appPath') + '/../sites/' + req.vhost[0] + '/index.html'));
   });
 
   app.use(vhost('*.school.com', subApp)); // Serves all subdomains via site app

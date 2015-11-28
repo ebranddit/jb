@@ -1,0 +1,77 @@
+.overlay-default{
+  position: relative;
+
+  .overlay-inner{
+    position: relative;
+    height: 100%;
+    z-index: 1;
+  }
+}
+
+.header {
+    padding: 120px 0 80px;
+
+    @include media("≥desktop") {
+      height: 100%;
+      padding: 0;
+    }
+
+    .header-content {
+      padding-top: 50px;
+      width: 100%;
+
+      @include media("≥desktop") {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        @include transform(translateY(-50%));
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+      }
+
+      .tile {
+        float: left;
+        background-color: $theme-color;
+        //@include linear-gradient(to right, #e4f5fc 0%,#bfe8f9 0%,#2ab0ed 100%);
+        opacity: 0.8;
+        margin: 8px;
+        box-shadow: 4px 4px 5px -1px rgba(0,0,0,0.75);
+
+        &:hover {
+            box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.75);
+        }
+
+        .square {
+          margin-top: 100%;
+        }
+
+        a {
+         position: absolute;
+         top: 15px;
+         bottom: 0;
+         left: 15px;
+         right: 0;
+         text-align:center;
+         text-decoration: none;
+         text-transform: uppercase;
+         color: $primary-color;
+         font-size: 1.8em;
+         padding-top: calc(15%);
+
+         i {
+           width: 100%;
+           font-size: 2.4em;
+         }
+
+        }
+      }
+    }
+
+    .container {
+      position: relative;
+      height: 100%;
+    }
+}

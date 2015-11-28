@@ -1,0 +1,19 @@
+<!--|Header|-->
+<header id="header" class="overlay-default header">
+  <div class="overlay-inner">
+    <!--|Header Content|-->
+    <div class="header-content">
+      <div class="container">
+        <div class="tile col-md-3 col-sm-4 col-xs-6" ng-repeat="page in pages">
+            <div class="square"></div>
+            <a href="#{{page.id}}" ui-sref-active="active" ui-sref="main.page({pageId: page.id})">
+              <span>{{page.title}}</span>
+            </a>
+        </div>
+      </div>
+    </div> <!--||End Header Content|-->
+  </div>
+</header>
+<!--|End Header|-->
+
+<div id="page-view" ui-view=""></div>
