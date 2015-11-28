@@ -12,6 +12,10 @@ var PageSchema = new Schema({
     type: String,
     required: true
   },
+  url: {
+    type: String,
+    required: true
+  },
   layout: String,
   phase: {
     type: String,

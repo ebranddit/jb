@@ -17,6 +17,7 @@ module.exports = function(app) {
   app.use('/api/things', require('./api/thing'));
   app.use('/api/themes', require('./components/themes'));
   app.use('/api/site', require('./api/site'));
+  app.use('/api/page', require('./api/page'));
 
   app.use('/auth', require('./auth'));
   app.use('/themes', express.static(__dirname + '/themes'));

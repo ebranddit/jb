@@ -23,9 +23,15 @@ Site.find({}).remove(function() {
 Page.find({}).remove(function() {
   Page.create({
     site : 'demo',
+    url : 'home',
     title : 'Home'
   }, {
     site : 'demo',
+    url : 'teachers',
+    title : 'Teachers'
+  }, {
+    site : 'demo',
+    url : 'about',
     title : 'About Us'
   },{
     site : 'ran',

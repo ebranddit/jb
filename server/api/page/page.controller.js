@@ -7,7 +7,8 @@ var Page = require('./page.model');
  * Get list of pages
  */
 exports.index = function(req, res) {
-  Page.find({site: req.vhost[0]}, function (err, pages) {
+  console.log(req.subdomains[0]);
+  Page.find({site: req.subdomains[0]}, function (err, pages) {
     if(err) return next(createError(422, err.toString()));
     res.status(200).json(pages);
   });
